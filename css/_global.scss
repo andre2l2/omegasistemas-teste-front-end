@@ -3,6 +3,7 @@ $body-color: #457b9d;
 $font-secundry-color: #f1faee;
 $font-primary-color: black;
 $font-alert-color: #e63946;
+$hover-color: #a8dadc;
 
 * {
     margin: 0;
@@ -26,5 +27,10 @@ button,
 input {
     border: none;
     outline: none;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
 }
 

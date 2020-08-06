@@ -2,17 +2,53 @@ header,
 section {
     font-size: 4.2rem;
     font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 
 header {
-    text-align: center;
+    height: 12rem;
     background-color: #1d3557;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     
     h1 {
         color: $font-secundry-color;
         font-size: 3rem;
         font-weight: 300;
         font-family: 'Quicksand', sans-serif;
+        text-align: center;
+    }
+
+    ul {
+        display: flex;
+
+        li {
+            position: relative;
+            margin: 0 1rem;
+
+            a {
+                color: $font-secundry-color;
+
+                &::after {
+                    background-color: $font-secundry-color;
+                    position: absolute;
+                    
+                    bottom: 0;
+                    left: 0;
+                    content: '';
+    
+                    height: 2px;
+                    width: 0%;
+                    transition: 0.4s;
+                }
+    
+                &:hover::after {
+                    width: 100%;
+                }
+            }       
+        }
     }
 }
 
@@ -27,12 +63,20 @@ section#fist-session {
     align-items: center;
     justify-content: center;
 
+    h3 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
     form {
         display: flex;
         flex-direction: column;
         align-items: center;
 
         label {
+            padding: 0.6rem 0;
+
             input {
                 width: 100%;
                 height: 4rem;
@@ -40,19 +84,49 @@ section#fist-session {
                 color: $font-secundry-color;
                 font-size: 2rem;
                 padding-left: 3px;
+                transition: .1s;
+
+                &:focus {
+                    border-bottom: 3px solid $header-color;
+                }
             }
         }
     
         button {
             cursor: pointer;
-            width: 50%;
-            height: 30px;
+            width: 70%;
+            height: 4rem;
             background-color: $body-color;
-            margin-top: 2rem;
+            margin-top: 3rem;
             border-radius: 1rem;
+            color: white;
+            font-size: 2rem;
+            transition: .2s;
+
+            &:hover {
+                background-color: #205474;
+            }
         }
     }
 
+    div.result {
+        width: 300px;
+        height: 400px;
+        background-color: red;
+    }
+}
 
+@media (min-width: 800px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    section#fist-session {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
 }
 
