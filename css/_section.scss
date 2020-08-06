@@ -1,0 +1,58 @@
+header,
+section {
+    font-size: 4.2rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    text-align: center;
+    background-color: #1d3557;
+    
+    h1 {
+        color: $font-secundry-color;
+        font-size: 3rem;
+        font-weight: 300;
+        font-family: 'Quicksand', sans-serif;
+    }
+}
+
+section#fist-session {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        label {
+            input {
+                width: 100%;
+                height: 4rem;
+                background-color: $body-color;
+                color: $font-secundry-color;
+                font-size: 2rem;
+                padding-left: 3px;
+            }
+        }
+    
+        button {
+            cursor: pointer;
+            width: 50%;
+            height: 30px;
+            background-color: $body-color;
+            margin-top: 2rem;
+            border-radius: 1rem;
+        }
+    }
+
+
+}
+

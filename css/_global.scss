@@ -1,0 +1,30 @@
+$header-color: #1d3557;
+$body-color: #457b9d;
+$font-secundry-color: #f1faee;
+$font-primary-color: black;
+$font-alert-color: #e63946;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 70%;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+li {
+    list-style: none;
+}
+
+button,
+input {
+    border: none;
+    outline: none;
+}
+
