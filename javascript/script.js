@@ -35,7 +35,7 @@ function buttonSeach() {
             .then(res => res.json())
             .then(ufs => {
                 ufs.data.map(index => {
-                    if (index.uf.toUpperCase().trim() == $inputUf) {
+                    if (index.uf.toUpperCase().trim() == $inputUf.toUpperCase()) {
                         const $resultIn = document.querySelector('div.result div span.render');
                         $resultIn.innerHTML = `
                             Total de R$:${index.valor} pago, des de 01/04/2020 ate ${dayTo}/${monthTo}/2020.
