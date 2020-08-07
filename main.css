@@ -138,21 +138,6 @@ section#fist-session div.form {
           align-items: center;
 }
 
-section#fist-session div.form label:first-child {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-section#fist-session div.form label:first-child div:first-child {
-  margin-right: 2rem;
-}
-
-section#fist-session div.form label:first-child div {
-  font-size: 1.3rem;
-  font-weight: 300;
-}
-
 section#fist-session div.form label {
   padding: 0.6rem 0;
   width: 100%;
@@ -225,6 +210,20 @@ section#fist-session div.result {
   }
   section#fist-session div.result {
     width: 30%;
+    padding: 1rem;
+  }
+  section#fist-session div.result div {
+    background-color: red;
+  }
+  section#fist-session div.result div h3 {
+    font-size: 3rem;
+  }
+  section#fist-session div.result div p {
+    font-size: 2.7rem;
+  }
+  section#fist-session div.result div p span {
+    display: block;
+    text-align: center;
   }
 }
 /*# sourceMappingURL=main.css.map */
