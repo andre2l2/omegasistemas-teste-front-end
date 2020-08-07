@@ -10,8 +10,6 @@ function buttonSeach() {
     const $result = document.querySelector('div.result');
 
 
-    const state = [];
-
 
     function allStates() {
 
@@ -20,54 +18,51 @@ function buttonSeach() {
             .then(states => {
                 states.map((index) => {
                     if ($inputUf.toUpperCase() == index.sigla) {
-                        state.push({
-                            name: index.nome,
-                            sigla: index.sigla
-                        })  
+                        renderToScreen(index.nome);
                     }
                 })
             })
-
-        return state;
     }
 
-    
-    function renderToScreen() {
+    auxilo();
+    function auxilo() {
+        const monthTo = `${$dateTo[5]}${$dateTo[6]}`;
+        const dayTo = `${$dateTo[8]}${$dateTo[9]}`;
+        
+        allStates();
 
+        fetch(`http://ae-portaldatransparencia.cgu.gov.br/auxilio-emergencial/beneficios/consulta/resultado?paginacaoSimples=true&tamanhoPagina=15&offset=0&direcaoOrdenacao=asc&colunaOrdenacao=municipio&de=01/07/2020&ate=${String(dayTo)}/${String(monthTo)}/2020&municipio=&colunasSelecionadas=linkDetalhamento,linguagemCidada,mesAno,uf,municipio,valor,quantidade&_=1596639565692`)
+            .then(res => res.json())
+            .then(ufs => {
+                ufs.data.map(index => {
+                    if (index.uf.toUpperCase().trim() == $inputUf) {
+                        const $resultIn = document.querySelector('div.result div span.render');
+                        $resultIn.innerHTML = `
+                            Total de R$:${index.valor} pago, des de 01/04/2020 ate ${dayTo}/${monthTo}/2020.
+                        `
+                    }
+                    console.log(index)
+                })
+            })
+    }
+    
+    function renderToScreen(state) {
         $result.innerHTML = `
             <div>
-                <h3>Total do estado de ${$inputUf.toUpperCase()}</h3>
+                <h3>Estado: ${state}(${$inputUf.toUpperCase()})</h3>
                 <p>
                     <span>Auxio emergencial</span>
-                    <span>
-                        Total pago des ${valuesForUfs.price} de 04/2020 ao estado de uf
+                    <span class="render">
+                        
                     </span>
-                    
                 </p>
             </div>
         `
     }
 
-
-    renderToScreen();
 }
 
 
 
-auxilo();
-function auxilo() {
-    const monthTo = `${$dateTo[5]}${$dateTo[6]}`;
-    const dayTo = `${$dateTo[8]}${$dateTo[9]}`;
 
-    fetch(`http://ae-portaldatransparencia.cgu.gov.br/auxilio-emergencial/beneficios/consulta/resultado?paginacaoSimples=true&tamanhoPagina=15&offset=0&direcaoOrdenacao=asc&colunaOrdenacao=municipio&de=01/07/2020&ate=${String(dayTo)}/${String(monthTo)}/2020&municipio=&colunasSelecionadas=linkDetalhamento,linguagemCidada,mesAno,uf,municipio,valor,quantidade&_=1596639565692`)
-        .then(res => res.json())
-        .then(ufs => {
-            ufs.data.map(index => {
-                valuesForUfs.push({
-                    uf: index.uf,
-                    price: index.valor
-                })
-            })
-        })
-}
 
