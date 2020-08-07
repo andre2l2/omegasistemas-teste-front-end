@@ -69,13 +69,26 @@ section#fist-session {
         margin-bottom: 2rem;
     }
 
-    form {
+    div.form {
         display: flex;
         flex-direction: column;
         align-items: center;
 
+        label:first-child {
+            display: flex;
+
+            div:first-child {
+                margin-right: 2rem;
+            }
+            div {
+                font-size: 1.3rem;
+                font-weight: 300;
+            }
+        }
+
         label {
             padding: 0.6rem 0;
+            width: 100%;
 
             input {
                 width: 100%;
@@ -83,7 +96,8 @@ section#fist-session {
                 background-color: $body-color;
                 color: $font-secundry-color;
                 font-size: 2rem;
-                padding-left: 3px;
+                padding-left: 5px;
+                text-transform: uppercase;
                 transition: .1s;
 
                 &:focus {
@@ -98,7 +112,7 @@ section#fist-session {
             height: 4rem;
             background-color: $body-color;
             margin-top: 3rem;
-            border-radius: 1rem;
+            border-radius: 5px;
             color: white;
             font-size: 2rem;
             transition: .2s;
@@ -110,9 +124,10 @@ section#fist-session {
     }
 
     div.result {
-        width: 300px;
-        height: 400px;
-        background-color: red;
+        margin-top: 2rem;
+        width: 100%;
+        min-height: 500px;
+        background-color: #e7e7e7;
     }
 }
 
@@ -127,6 +142,10 @@ section#fist-session {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+
+        div.result {
+            width: 30%;
+        }
     }
 }
 
